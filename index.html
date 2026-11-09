@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedido confirmado — Million IA</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a1220;
+    --bg2:#0e1828;
+    --card:#111e33;
+    --line:rgba(201,162,39,.22);
+    --line2:rgba(255,255,255,.09);
+    --gold:#c9a227;
+    --gold-hi:#e6c35a;
+    --ink:#f4f1e8;
+    --muted:#93a1b5;
+    --ok:#3ecf8e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Sora',system-ui,-apple-system,sans-serif;
+    background:
+      radial-gradient(900px 420px at 50% -160px, rgba(201,162,39,.13), transparent 70%),
+      linear-gradient(180deg, var(--bg2), var(--bg) 55%);
+    color:var(--ink);
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  main{
+    width:100%;
+    max-width:600px;
+    padding:clamp(28px,6vw,56px) 22px 48px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    justify-content:center;
+    margin-bottom:34px;
+  }
+  .brand .mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(135deg,var(--gold-hi),var(--gold));
+    display:grid;place-items:center;
+    font-weight:800;font-size:19px;color:#131c2c;
+  }
+  .brand span{font-weight:800;letter-spacing:.14em;font-size:15px}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:7px 14px;
+    font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--gold-hi);
+    margin-bottom:22px;
+  }
+  .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ok)}
+  h1{
+    font-size:clamp(30px,7.5vw,40px);
+    font-weight:800;
+    letter-spacing:-.02em;
+    line-height:1.1;
+    text-wrap:balance;
+  }
+  .lead{color:var(--muted);font-size:15.5px;line-height:1.65;margin-top:14px}
+  .lead b{color:var(--ink);font-weight:600}
+  .produto{
+    margin-top:14px;
+    display:inline-block;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:10px 16px;
+    font-size:14px;
+  }
+  .produto b{color:var(--gold-hi);font-weight:600}
+  .timeline{margin-top:38px;display:flex;flex-direction:column;gap:0}
+  .passo{
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:16px;
+    position:relative;
+    padding-bottom:30px;
+  }
+  .passo:last-child{padding-bottom:0}
+  .passo::before{
+    content:"";
+    position:absolute;left:21px;top:48px;bottom:2px;
+    width:2px;
+    background:var(--line2);
+  }
+  .passo:last-child::before{display:none}
+  .num{
+    width:44px;height:44px;border-radius:50%;
+    border:1.5px solid var(--gold);
+    display:grid;place-items:center;
+    font-weight:800;font-size:16px;color:var(--gold-hi);
+    background:var(--bg);
+    z-index:1;
+  }
+  .passo.feito .num{
+    background:linear-gradient(135deg,var(--gold-hi),var(--gold));
+    color:#131c2c;border-color:transparent;
+  }
+  .passo h2{font-size:16.5px;font-weight:600;letter-spacing:-.01em}
+  .passo h2 small{
+    display:block;font-size:11px;font-weight:600;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:5px;
+  }
+  .passo p{color:var(--muted);font-size:14px;line-height:1.65;margin-top:8px}
+  .passo p b{color:var(--ink);font-weight:600}
+  .aviso{
+    margin-top:38px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:rgba(201,162,39,.06);
+    padding:20px 22px;
+  }
+  .aviso h3{
+    font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--gold-hi);margin-bottom:9px;
+  }
+  .aviso p{color:var(--muted);font-size:14px;line-height:1.7}
+  .aviso p b{color:var(--ink);font-weight:600}
+  .suporte{
+    margin-top:26px;
+    color:var(--muted);
+    font-size:13.5px;
+    line-height:1.7;
+    text-align:center;
+  }
+  .suporte b{color:var(--ink);font-weight:600}
+  footer{
+    width:100%;max-width:600px;
+    padding:26px 22px 40px;
+    border-top:1px solid var(--line2);
+    color:#5d6b80;
+    font-size:12px;
+    text-align:center;
+    letter-spacing:.04em;
+  }
+  @media (max-width:420px){
+    .passo{grid-template-columns:38px 1fr;gap:13px}
+    .num{width:38px;height:38px;font-size:14px}
+    .passo::before{left:18px;top:44px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    main{animation:rise .55s ease-out both}
+    @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand" aria-label="Million IA">
+    <div class="mark">M</div>
+    <span>MILLION&nbsp;IA</span>
+  </div>
+
+  <div class="badge">Black Week 2026 · Pedido confirmado</div>
+
+  <h1>Tudo certo, sua compra foi aprovada.</h1>
+
+  <p class="lead" id="lead-custom">
+    Obrigado por confiar no ecossistema <b>Million IA</b>. Agora é só seguir os três passos abaixo —
+    o processo de ativação é automático e você não precisa fazer mais nada agora.
+  </p>
+
+  <div class="produto" id="produto-card" hidden>
+    Produto: <b id="produto-nome"></b>
+  </div>
+
+  <section class="timeline" aria-label="Próximos passos">
+    <div class="passo feito">
+      <div class="num">1</div>
+      <div>
+        <h2><small>Agora</small>Confirmação por e-mail</h2>
+        <p>Em instantes você recebe o <b>e-mail de confirmação da compra</b>. Ele confirma o pedido e inicia o processo de liberação do seu acesso.</p>
+      </div>
+    </div>
+    <div class="passo">
+      <div class="num">2</div>
+      <div>
+        <h2><small>Em até 72 horas</small>Link exclusivo de ativação</h2>
+        <p>Assim que o pagamento for confirmado, geramos o seu <b>link exclusivo de ativação</b> e enviamos por e-mail. O prazo máximo é de <b>72 horas</b> após a aprovação do pagamento — normalmente é muito mais rápido.</p>
+      </div>
+    </div>
+    <div class="passo">
+      <div class="num">3</div>
+      <div>
+        <h2><small>Por fim</small>Acesso liberado no sistema</h2>
+        <p>Basta <b>abrir o link do e-mail</b> e o sistema ativa o seu acesso automaticamente. Sem senha, sem cadastro adicional — o link é a sua chave de entrada.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aviso">
+    <h3>Guarde o e-mail de confirmação</h3>
+    <p>Ele é a prova da sua compra e a referência da sua ativação. Não encontrou? Verifique a pasta de <b>spam e promoções</b> antes de procurar o suporte.</p>
+  </section>
+
+  <p class="suporte">
+    Dúvidas sobre o pedido ou a ativação? <b>Responda o e-mail de confirmação</b> que nossa equipe recebe direto.
+  </p>
+</main>
+
+<footer>© 2026 Million IA · Todos os direitos reservados</footer>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(location.search);
+
+    var nome = {
+      combo:  "Combo Sistema Milionário + Pack Bônus",
+      dolar:  "Dólar de Midas"
+    }[(params.get("produto") || "").toLowerCase()];
+
+    if (nome) {
+      document.getElementById("produto-nome").textContent = nome;
+      document.getElementById("produto-card").hidden = false;
+    }
+
+    var nomeCliente = params.get("nome");
+    if (nomeCliente) {
+      var lead = document.getElementById("lead-custom");
+      lead.innerHTML = "<b>" + nomeCliente.replace(/[<>&]/g, "") + "</b>, obrigado por confiar no ecossistema <b>Million IA</b>. Agora é só seguir os três passos abaixo — o processo de ativação é automático e você não precisa fazer mais nada agora.";
+    }
+
+    document.title = nome ? "Pedido confirmado — " + nome + " | Million IA" : document.title;
+  })();
+</script>
+</body>
+</html>
